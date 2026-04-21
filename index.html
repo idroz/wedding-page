@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emma &amp; Ignat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2a2a28;
+    --paper: #f7f3ec;
+    --rule: #c9bfae;
+    --accent: #7a6a4f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+
+  header {
+    text-align: center;
+    padding: 2rem 0 3rem;
+  }
+
+  .monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 .amp {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+    display: block;
+    font-size: 0.7em;
+    margin: 0.2em 0;
+  }
+
+  .date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+    gap: 1rem;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    max-width: 100px;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .divider-ornament {
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  section {
+    margin: 4rem 0;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    margin: 1rem auto 0;
+  }
+
+  p {
+    font-size: 1rem;
+    max-width: 520px;
+    margin: 0 auto 1rem;
+  }
+
+  .detail-block {
+    margin: 2rem 0;
+  }
+
+  .detail-block .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .detail-block .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .detail-block .sub {
+    font-size: 0.95rem;
+    color: #6a6458;
+    margin-top: 0.3rem;
+  }
+
+  .schedule {
+    list-style: none;
+    max-width: 380px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .schedule li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.9rem 0;
+    border-bottom: 1px dotted var(--rule);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+  }
+
+  .schedule li:last-child { border-bottom: none; }
+
+  .schedule .time {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .rsvp-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.9rem 2.5rem;
+    background: transparent;
+    color: var(--ink);
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .rsvp-button:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  footer {
+    text-align: center;
+    padding: 3rem 0 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 2.5rem 1.25rem; }
+    section { margin: 3rem 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="monogram">Together with their families</div>
+      <h1>
+        Emma Kirk
+        <span class="amp">&amp;</span>
+        Ignat Drozdov
+      </h1>
+      <div class="date">Invite you to their wedding</div>
+    </header>
+
+    <div class="divider">
+      <span class="divider-ornament">&#10086;</span>
+    </div>
+
+    <section>
+      <h2>The Day</h2>
+      <div class="detail-block">
+        <div class="label">The date</div>
+        <div class="value">Wednesday, the eight of July<br>Two thousand and twenty-six</div>
+      </div>
+      <div class="detail-block">
+        <div class="label">The venue</div>
+        <div class="value">Bingham Riverhouse</div>
+        <div class="sub">61-63 Petersham Road, Richmond, TW10 6UT</div>
+      </div>
+    </section>
+
+    <div class="divider">
+      <span class="divider-ornament">&#10086;</span>
+    </div>
+
+    <section>
+      <h2>Order of the Day</h2>
+      <ul class="schedule">
+        <li><span>Wellcome Drinks</span> <span class="time">1:30 pm</span></li>
+        <li><span>Ceremony</span> <span class="time">2:00 pm</span></li>
+        <li><span>Cocktail Reception</span> <span class="time">2:30 pm</span></li>
+        <li><span>Wedding Breakfast</span> <span class="time">4:00 pm</span></li>
+        <li><span>Music and Dancing</span> <span class="time">7:30 pm</span></li>
+        <li><span>Carriages</span> <span class="time">12:00 am</span></li>
+      </ul>
+    </section>
+
+    <div class="divider">
+      <span class="divider-ornament">&#10086;</span>
+    </div>
+
+    <section>
+      <h2>Travel &amp; Stay</h2>
+      <p>The venue is easily reached by car and has on-site parking. The nearest railway station is a short taxi ride away.</p>
+      <p>A block of rooms has been reserved at nearby hotels for guests wishing to stay overnight. Please mention the Kirk-Drozdov wedding when booking.</p>
+    </section>
+
+    <div class="divider">
+      <span class="divider-ornament">&#10086;</span>
+    </div>
+
+    <section>
+      <h2>Kindly Reply</h2>
+      <p>We would be delighted if you could join us. Please respond by the first of July 2026.</p>
+      <a href="https://forms.cloud.microsoft/e/f1f2YxvJX7" class="rsvp-button">RSVP</a>
+    </section>
+
+    <footer>
+      &mdash; Emma &amp; Ignat &mdash;
+    </footer>
+
+  </div>
+</body>
+</html>
