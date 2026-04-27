@@ -199,17 +199,79 @@
     font-size: 1rem;
   }
 
+  /* Navigation */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(247, 243, 236, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+    gap: 0.25rem 2rem;
+  }
+
+  .nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .nav a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  section {
+    scroll-margin-top: 80px;
+  }
+
+  html { scroll-behavior: smooth; }
+
   @media (max-width: 600px) {
     .container { padding: 2.5rem 1.25rem; }
     section { margin: 3rem 0; }
+    .nav ul {
+      gap: 0.25rem 1.25rem;
+      padding: 0.85rem 1rem;
+    }
+    .nav a {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+    }
   }
 </style>
 </head>
 <body>
+  <nav class="nav" aria-label="Page sections">
+    <ul>
+      <li><a href="#the-day">The Day</a></li>
+      <li><a href="#order">Order</a></li>
+      <li><a href="#travel">Travel</a></li>
+      <li><a href="#gifts">Gifts</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
 
     <header>
-      <div class="monogram">Together with their families</div>
       <h1>
         Emma Kirk
         <span class="amp">&amp;</span>
@@ -222,11 +284,11 @@
       <span class="divider-ornament">&#10086;</span>
     </div>
 
-    <section>
+    <section id="the-day">
       <h2>The Day</h2>
       <div class="detail-block">
         <div class="label">The date</div>
-        <div class="value">Wednesday, the eight of July<br>Two thousand and twenty-six</div>
+        <div class="value">Wednesday, the eighth of July<br>Two thousand and twenty-six</div>
       </div>
       <div class="detail-block">
         <div class="label">The venue</div>
@@ -239,10 +301,10 @@
       <span class="divider-ornament">&#10086;</span>
     </div>
 
-    <section>
+    <section id="order">
       <h2>Order of the Day</h2>
       <ul class="schedule">
-        <li><span>Wellcome Drinks</span> <span class="time">1:30 pm</span></li>
+        <li><span>Welcome Drinks</span> <span class="time">1:30 pm</span></li>
         <li><span>Ceremony</span> <span class="time">2:00 pm</span></li>
         <li><span>Cocktail Reception</span> <span class="time">2:30 pm</span></li>
         <li><span>Wedding Breakfast</span> <span class="time">4:00 pm</span></li>
@@ -255,17 +317,27 @@
       <span class="divider-ornament">&#10086;</span>
     </div>
 
-    <section>
+    <section id="travel">
       <h2>Travel &amp; Stay</h2>
-      <p>The venue is easily reached by car and has on-site parking. The nearest railway station is a short taxi ride away.</p>
-      <p>A block of rooms has been reserved at nearby hotels for guests wishing to stay overnight. Please mention the Kirk-Drozdov wedding when booking.</p>
+      <p>The venue is easily reached by car and has on-site parking. Richmon Railway station is a short walking distance away and is served by the District Line, London Overground, and fast-service trains from London Waterloo.</p>
+      <p>Should you wish to stay nearby, three hotels are a short stroll from the venue: the Richmond Hill Hotel, the Harbour Hotel, and the Petersham Hotel.</p>
     </section>
 
     <div class="divider">
       <span class="divider-ornament">&#10086;</span>
     </div>
 
-    <section>
+    <section id="gifts">
+      <h2>Gifts</h2>
+      <p>Your presence on our wedding day is the greatest gift of all, and we are truly grateful that you will be sharing it with us.</p>
+      <p>Should you wish to mark the occasion with something more, <a htref="https://revolute.me/idrozdov85">a contribution toward our honeymoon</a> would be warmly and gratefully received.</p>
+    </section>
+
+    <div class="divider">
+      <span class="divider-ornament">&#10086;</span>
+    </div>
+
+    <section id="rsvp">
       <h2>Kindly Reply</h2>
       <p>We would be delighted if you could join us. Please respond by the first of June 2026.</p>
       <a href="https://forms.cloud.microsoft/e/f1f2YxvJX7" class="rsvp-button">RSVP</a>
