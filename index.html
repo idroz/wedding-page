@@ -32,13 +32,14 @@
   .container {
     max-width: 720px;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 0 1.5rem 4rem;
   }
 
   header {
     text-align: center;
-    padding: 2rem 0 3rem;
+    padding: 5rem 0 4rem;
     position: relative;
+    margin-bottom: 1rem;
   }
 
   .header-content {
@@ -93,7 +94,7 @@
   }
 
   .banner {
-    margin: 3rem 0 1rem;
+    margin: 3rem 0 0;
     width: 100vw;
     position: relative;
     left: 50%;
@@ -113,6 +114,41 @@
     object-fit: cover;
     opacity: 0.4;
     filter: saturate(0.4);
+  }
+
+  #rsvp {
+    position: relative;
+    padding: 4rem 0;
+  }
+
+  .footer-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  }
+
+  .footer-bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    filter: saturate(0.4);
+  }
+
+  #rsvp > *:not(.footer-bg) {
+    position: relative;
+    z-index: 1;
   }
 
   .monogram {
@@ -340,7 +376,7 @@
 
   @media (max-width: 600px) {
     body { font-size: 1rem; }
-    .container { padding: 2.5rem 1.25rem; }
+    .container { padding: 0 1.25rem 2.5rem; }
     section { margin: 3rem 0; }
     p { font-size: 1rem; }
     .nav ul {
@@ -388,10 +424,6 @@
         <div class="date">Invite you to their wedding</div>
       </div>
     </header>
-
-    <div class="banner">
-      <img src="banner.jpg" alt="">
-    </div>
 
     <div class="divider">
       <span class="divider-ornament">&#10086;</span>
@@ -452,6 +484,9 @@
     </div>
 
     <section id="rsvp">
+      <div class="footer-bg" aria-hidden="true">
+        <img src="footer.jpg" alt="">
+      </div>
       <h2>Kindly Reply</h2>
       <p>We would be delighted if you could join us. Please let us know by the <b>21st of May 2026</b>.</p>
       <a href="https://forms.cloud.microsoft/e/f1f2YxvJX7" class="rsvp-button">RSVP</a>
