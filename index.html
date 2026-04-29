@@ -38,6 +38,58 @@
   header {
     text-align: center;
     padding: 2rem 0 3rem;
+    position: relative;
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .carousel {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  }
+
+  .carousel-track {
+    display: flex;
+    width: 600%; /* 5 unique slides + 1 duplicate of first for seamless loop */
+    height: 100%;
+    animation: carousel-slide 40s infinite linear;
+  }
+
+  .carousel-slide {
+    flex: 0 0 calc(100% / 6);
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    filter: saturate(0.4);
+  }
+
+  /* 5 slides, each held ~6s with smooth slide between. Loops seamlessly via duplicated first slide at the end. */
+  @keyframes carousel-slide {
+    0%,    15% { transform: translateX(0); }
+    20%,   35% { transform: translateX(calc(-100% / 6)); }
+    40%,   55% { transform: translateX(calc(-200% / 6)); }
+    60%,   75% { transform: translateX(calc(-300% / 6)); }
+    80%,   95% { transform: translateX(calc(-400% / 6)); }
+    100%       { transform: translateX(calc(-500% / 6)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track { animation: none; }
   }
 
   .banner {
@@ -60,11 +112,7 @@
     aspect-ratio: 4 / 1;
     object-fit: cover;
     opacity: 0.4;
-    transition: opacity 0.4s ease;
-  }
-
-  .banner img:hover {
-    opacity: 0.55;
+    filter: saturate(0.4);
   }
 
   .monogram {
@@ -320,16 +368,30 @@
   <div class="container">
 
     <header>
-      <h1>
-        Emma Kirk
-        <span class="amp">&amp;</span>
-        Ignat Drozdov
-      </h1>
-      <div class="date">Invite you to their wedding</div>
-      <div class="banner">
-        <img src="banner.jpg" alt="">
+      <div class="carousel" aria-hidden="true">
+        <div class="carousel-track">
+          <div class="carousel-slide" style="background-image: url('carousel-1.jpg');"></div>
+          <div class="carousel-slide" style="background-image: url('carousel-2.jpg');"></div>
+          <div class="carousel-slide" style="background-image: url('carousel-3.jpg');"></div>
+          <div class="carousel-slide" style="background-image: url('carousel-4.jpg');"></div>
+          <div class="carousel-slide" style="background-image: url('carousel-5.jpg');"></div>
+          <!-- duplicate of first slide for seamless loop -->
+          <div class="carousel-slide" style="background-image: url('carousel-1.jpg');"></div>
+        </div>
+      </div>
+      <div class="header-content">
+        <h1>
+          Emma Kirk
+          <span class="amp">&amp;</span>
+          Ignat Drozdov
+        </h1>
+        <div class="date">Invite you to their wedding</div>
       </div>
     </header>
+
+    <div class="banner">
+      <img src="banner.jpg" alt="">
+    </div>
 
     <div class="divider">
       <span class="divider-ornament">&#10086;</span>
